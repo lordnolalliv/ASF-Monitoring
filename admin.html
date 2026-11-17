@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f4">
+    <meta name="description" content="Administrative tools for Bohol ASF Watch.">
+    <title>Admin · Bohol ASF Watch</title>
+    <link rel="icon" href="app-icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="barangays.js" defer></script>
+    <script src="demo-data.js" defer></script>
+    <script src="admin.js" defer></script>
+  </head>
+  <body class="admin-page">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Bohol ASF Watch dashboard">
+        <img class="brand-mark" src="bohol-province-seal.png" alt="">
+        <span><strong>Bohol ASF Watch</strong><small>Administration</small></span>
+      </a>
+      <div class="topbar-right">
+        <a class="button button-secondary" href="index.html">Back to dashboard</a>
+        <span class="signed-in-user" id="admin-identity">Local browser mode</span>
+        <form class="logout-form" id="admin-logout" action="logout.php" method="post" hidden>
+          <input type="hidden" name="csrf" id="admin-logout-csrf" value="">
+          <button class="button button-secondary" type="submit">Sign out</button>
+        </form>
+      </div>
+    </header>
+    <nav class="site-navigation" aria-label="Administration navigation">
+      <div class="site-navigation-inner">
+        <a href="#admin-overview">Overview</a>
+        <a href="#admin-tools">Data tools</a>
+        <a href="#account-management" id="accounts-nav">Accounts</a>
+        <a href="#change-log">Change history</a>
+      </div>
+    </nav>
+    <main class="page admin-page-content">
+      <aside class="admin-notice" id="admin-mode-notice" role="note">
+        <strong>Browser-only administration</strong>
+        <span>This page uses local browser storage and does not provide sign-in or account protection. Use the PHP server version for shared, role-protected administration.</span>
+      </aside>
+      <aside class="demo-mode-banner" id="admin-backend-error" role="alert" hidden></aside>
+      <header class="admin-page-heading" id="admin-overview">
+        <div>
+          <p class="eyebrow">BOHOL ASF WATCH · CONTROL CENTER</p>
+          <h1>Administration</h1>
+          <p class="intro-copy">Manage browser data, backups, sample records, and change history.</p>
+        </div>
+        <span class="admin-secure-badge" id="admin-mode-badge">Local data</span>
+      </header>
+      <div class="admin-stats admin-overview-grid" aria-label="Administration summary">
+        <article class="admin-stat"><span>Saved reports</span><strong id="admin-report-count">0</strong><small>Saved to this browser</small></article>
+        <article class="admin-stat"><span>Municipalities reporting</span><strong id="admin-municipality-count">0</strong><small>Of 47 municipalities</small></article>
+        <article class="admin-stat"><span>Change history</span><strong id="admin-audit-count">0</strong><small>Recent logged events</small></article>
+        <article class="admin-stat"><span>Latest report</span><strong id="admin-latest-date">—</strong><small>By report date</small></article>
+      </div>
+      <section class="panel admin-tools-panel" id="admin-tools" aria-labelledby="admin-tools-title">
+        <div class="section-heading admin-tools-heading">
+          <div><p class="eyebrow">DATA MANAGEMENT</p><h2 id="admin-tools-title">Backup and data tools</h2></div>
+          <p class="section-subtitle">Create a backup before replacing browser records.</p>
+        </div>
+        <div class="admin-tools-grid">
+          <article class="admin-tool-card">
+            <span class="admin-tool-icon" aria-hidden="true">↓</span>
+            <div><h3>Download backup</h3><p>Save reports and recent change history as a JSON file.</p></div>
+            <button class="button button-secondary" id="admin-backup-data" type="button">Download backup</button>
+          </article>
+          <article class="admin-tool-card">
+            <span class="admin-tool-icon" aria-hidden="true">↑</span>
+            <div><h3>Restore backup</h3><p>Replace stored reports and history from a valid JSON backup.</p></div>
+            <input id="admin-backup-file" type="file" accept="application/json,.json" hidden>
+            <button class="button button-secondary" id="admin-restore-backup" type="button">Choose backup</button>
+          </article>
+          <article class="admin-tool-card">
+            <span class="admin-tool-icon" aria-hidden="true">▦</span>
+            <div><h3>Export reports</h3><p>Download all current reports as a spreadsheet-friendly CSV.</p></div>
+            <button class="button button-secondary" id="admin-export-reports" type="button">Export CSV</button>
+          </article>
+          <article class="admin-tool-card">
+            <span class="admin-tool-icon" aria-hidden="true">◎</span>
+            <div><h3>Fictional demo records</h3><p>Load sample reports for a demonstration. This replaces current data.</p></div>
+            <button class="button button-secondary" id="admin-load-demo" type="button">Load demo data</button>
+          </article>
+        </div>
+        <p id="admin-data-status" class="backup-status" role="status" aria-live="polite"></p>
+      </section>
+      <section class="panel admin-users" id="account-management" aria-labelledby="admin-users-title" hidden>
+        <div class="section-heading admin-tools-heading">
+          <div><p class="eyebrow">ACCESS CONTROL</p><h2 id="admin-users-title">Account management</h2></div>
+          <p class="section-subtitle">Create accounts and assign least-privilege roles.</p>
+        </div>
+        <form id="admin-user-form" class="admin-user-form">
+          <label class="compact-field">Username
+            <input name="username" minlength="3" maxlength="32" pattern="[A-Za-z0-9._-]+" autocomplete="off" required>
+          </label>
+          <label class="compact-field">Temporary password
+            <input name="password" type="password" minlength="12" maxlength="1024" autocomplete="new-password" required>
+          </label>
+          <label class="compact-field">Role
+            <select name="role" required>
+              <option value="viewer">Viewer · read-only</option>
+              <option value="editor">Editor · manage reports</option>
+              <option value="admin">Admin · manage accounts and data</option>
+            </select>
+          </label>
+          <button class="button button-primary" type="submit">Create account</button>
+        </form>
+        <p id="admin-users-status" class="backup-status" role="status" aria-live="polite"></p>
+        <div class="table-scroll accounts-scroll">
+          <table class="accounts-table">
+            <thead><tr><th scope="col">Username</th><th scope="col">Role</th><th scope="col">Created</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr></thead>
+            <tbody id="admin-users-list"></tbody>
+          </table>
+        </div>
+      </section>
+      <details class="panel audit-panel" id="change-log">
+        <summary>
+          <span><span class="eyebrow">RECORD HISTORY</span><strong>Recent changes</strong></span>
+          <span id="audit-count" class="audit-count">0 events</span>
+        </summary>
+        <div id="audit-list" class="audit-list"></div>
+      </details>
+      <footer class="footer admin-footer">
+        <div class="footer-brand"><strong>Bohol ASF Watch</strong><span>Administration tools</span></div>
+        <p class="footer-guidance">Keep backups in a secure location. Do not enter personal or sensitive information.</p>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="800" y1="0" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DDEEEA"/>
+      <stop offset="1" stop-color="#F6E9D8"/>
+    </linearGradient>
+    <linearGradient id="field" x1="500" y1="440" x2="1000" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A9C89B"/>
+      <stop offset="1" stop-color="#6F9C70"/>
+    </linearGradient>
+    <linearGradient id="pig" x1="1000" y1="470" x2="1120" y2="850" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5B6A1"/>
+      <stop offset="1" stop-color="#D98475"/>
+    </linearGradient>
+    <linearGradient id="pigSmall" x1="1240" y1="650" x2="1340" y2="880" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8C7AD"/>
+      <stop offset="1" stop-color="#E39A83"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1600v1000H0z"/>
+  <circle cx="1270" cy="180" r="77" fill="#F5D994" opacity=".8"/>
+  <g fill="#fff" opacity=".73">
+    <path d="M183 203c7-41 43-71 86-71 34 0 64 19 78 47 10-7 22-11 35-11 35 0 63 28 63 63 0 3 0 6-1 9H183c-3-11-3-24 0-37Z"/>
+    <path d="M876 114c6-29 32-51 63-51 24 0 46 14 56 34 8-5 17-8 26-8 26 0 46 20 46 46 0 2 0 4-1 6H876c-2-9-2-18 0-27Z"/>
+  </g>
+  <path fill="#C5D8AC" d="M0 566c180-120 367-143 556-67 188 76 331 46 497-47 192-108 371-91 547 2v546H0V566Z"/>
+  <path fill="#91B783" d="M0 675c186-105 349-98 515-18 170 82 368 57 552-41 185-99 364-98 533-17v401H0V675Z"/>
+  <path fill="url(#field)" d="M0 792c180-98 372-89 560-20 174 64 345 54 512-29 186-93 363-85 528-10v267H0V792Z"/>
+  <g opacity=".55" fill="#E5E8B8">
+    <path d="m66 861 8 20 22 2-17 13 5 21-18-12-19 11 7-21-16-14 22-1 6-19Z"/>
+    <path d="m349 725 6 15 16 1-13 10 4 16-14-9-14 8 5-15-12-11 16-1 6-14Z"/>
+    <path d="m1482 842 7 17 19 2-15 11 5 18-16-10-16 9 6-17-14-12 19-1 5-17Z"/>
+    <path d="m710 908 6 15 16 2-13 9 4 16-14-9-14 8 5-15-12-10 16-1 6-15Z"/>
+  </g>
+  <g opacity=".8">
+    <path fill="#D99B73" d="M122 511V375l112-79 112 79v136H122Z"/>
+    <path fill="#F2D8B8" d="M146 511V392l88-62 88 62v119H146Z"/>
+    <path fill="#A85F4D" d="m103 382 131-93 131 93-15 21-116-82-116 82-15-21Z"/>
+    <path fill="#8C5546" d="M204 431h39v80h-39z"/>
+    <path fill="#B56F59" d="M259 416h43v38h-43z"/>
+    <path stroke="#E8C9A6" stroke-width="5" d="M281 416v38m-22-19h43"/>
+  </g>
+  <g fill="#668C67">
+    <path d="M420 501c-10-55 18-94 59-94 37 0 62 37 54 94h-113Z"/>
+    <path d="M445 507V445h16v62m36 0v-52h15v52"/>
+    <path d="M1454 548c-9-48 15-82 51-82 32 0 54 32 47 82h-98Z"/>
+    <path d="M1475 553v-53h14v53m31 0v-45h13v45"/>
+  </g>
+  <ellipse cx="1048" cy="850" fill="#405E43" opacity=".18" rx="187" ry="27"/>
+  <g>
+    <path d="M1119 622c42-10 63 18 50 42-11 20-37 18-56 2" stroke="#D98475" stroke-width="13" stroke-linecap="round"/>
+    <path fill="url(#pig)" d="M944 689c-13-86 41-161 133-168 99-7 173 54 177 144 3 59-19 103-58 126l1 64c1 24-16 42-39 42-24 0-40-18-40-42v-42h-77v42c0 25-16 42-39 42-24 0-40-18-40-42v-75c-10-25-16-56-18-91Z"/>
+    <path fill="#E89B89" d="m974 566-27-67c-7-17 8-32 24-23l64 36-61 54Zm192-6 44-63c11-15 30-7 29 11l-2 73-71-21Z"/>
+    <path fill="#BC6F68" d="m984 556-15-39 41 22-26 17Zm197-2 26-38-2 47-24-9Z"/>
+    <ellipse cx="1038" cy="611" fill="#463A36" rx="8" ry="11"/>
+    <ellipse cx="1164" cy="602" fill="#463A36" rx="8" ry="11"/>
+    <ellipse cx="1104" cy="650" fill="#E88982" rx="51" ry="35"/>
+    <ellipse cx="1087" cy="649" fill="#9E544E" rx="5" ry="10"/>
+    <ellipse cx="1121" cy="649" fill="#9E544E" rx="5" ry="10"/>
+    <path d="M1079 690c17 12 35 12 51-1" stroke="#A85C58" stroke-width="5" stroke-linecap="round"/>
+    <path d="M1002 734c7 11 16 17 28 18m166-17c-8 11-17 16-29 16" stroke="#F8D0BA" stroke-width="7" stroke-linecap="round" opacity=".75"/>
+  </g>
+  <ellipse cx="1303" cy="870" fill="#405E43" opacity=".15" rx="101" ry="18"/>
+  <g>
+    <path d="M1361 751c26-5 37 14 29 28-7 12-23 11-34 1" stroke="#DE907B" stroke-width="9" stroke-linecap="round"/>
+    <path fill="url(#pigSmall)" d="M1247 796c-8-51 23-95 79-99 58-4 101 32 104 84 2 35-11 60-34 74v47c0 15-10 26-24 26s-23-11-23-26v-25h-45v25c0 15-9 26-23 26-14 0-24-11-24-26v-44c-6-15-9-35-10-62Z"/>
+    <path fill="#EBA48F" d="m1265 723-16-39c-5-10 5-19 14-14l37 21-35 32Zm112-3 27-36c7-9 18-4 17 7l-1 42-43-13Z"/>
+    <path fill="#463A36" d="M1289 758c0-6 3-9 7-9s7 3 7 9-3 9-7 9-7-3-7-9Zm77-6c0-6 3-9 7-9s7 3 7 9-3 9-7 9-7-3-7-9Z"/>
+    <ellipse cx="1330" cy="783" fill="#E88982" rx="31" ry="22"/>
+    <ellipse cx="1319" cy="783" fill="#9E544E" rx="3.5" ry="6"/>
+    <ellipse cx="1341" cy="783" fill="#9E544E" rx="3.5" ry="6"/>
+  </g>
+</svg>
